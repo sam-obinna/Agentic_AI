@@ -2,17 +2,14 @@ fastapi
 uvicorn
 python-dotenv
 langchain
-langchain-huggingface
+langchain-community
 langgraph
 langchain-groq
-pinecone-client
-sentence-transformers
-huggingface_hub
-langchain-community
-langchain-pinecone
-pinecone-client
-groq
-langchain-pinecone
 pinecone
-torch==2.6.0  # CPU-only version
+huggingface_hub
+# langchain-pinecone
+# # python-3.10.16   
+# conda install numpy
+# sentence-transformers
+
 
