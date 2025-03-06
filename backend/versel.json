@@ -1,0 +1,20 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "backend/api/*.py",
+        "use": "@vercel/python"
+      },
+      {
+        "src": "templates/*",
+        "use": "@vercel/static"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "templates/index.html"
+      }
+    ]
+  }
+  
