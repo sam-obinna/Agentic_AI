@@ -1,18 +1,18 @@
-# Use an official lightweight Python image
+# Use a lightweight Python base image
 FROM python:3.11-slim
 
-# Set the working directory in the container
+# Set the working directory
 WORKDIR /app
 
-# Copy the project files to the container
+# Copy the project files
 COPY . /app
 
-# Upgrade pip and install dependencies
-RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
+# Upgrade pip & install dependencies
+RUN pip install --upgrade pip setuptools && \
+    pip install --no-cache-dir -r requirements.txt
 
-# Expose the port (Render assigns $PORT dynamically)
+# Expose the port Render assigns dynamically
 EXPOSE 8000
 
-# Run the FastAPI application using Uvicorn
+# Start the FastAPI app with Uvicorn
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
