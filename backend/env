@@ -1,0 +1,4 @@
+PINECONE_API_KEY=pcsk_6mMyiG_43wMoTCi3zizsLxN3gbLa5NtMfAMcapRfCAGg9cNmh6pPEUXPqo1Rb18KtmPxRj
+PINECONE_ENVIRONMENT=gcp-starter
+PINECONE_INDEX=sigma-navigate-project-index
+GROQ_API_KEY=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
