@@ -8,4 +8,5 @@ langchain-groq
 pinecone-client
 sentence-transformers
 huggingface_hub
+langchain-pinecone
 torch==2.6.0  # CPU-only version
