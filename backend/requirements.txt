@@ -1,5 +1,7 @@
 fastapi
 uvicorn
+numpy
+requests
 python-dotenv
 langchain
 langchain-community
@@ -7,7 +9,7 @@ langgraph
 langchain-groq
 pinecone
 huggingface_hub
-# langchain-pinecone
+langchain-pinecone
 # # python-3.10.16   
 # conda install numpy
 # sentence-transformers
