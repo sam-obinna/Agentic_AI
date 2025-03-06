@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+python-dotenv
+langchain
+langchain-community
+langgraph
+langchain-groq
+langchain-pinecone
+pinecone-client
+groq
+sentence-transformers
+huggingface_hub
+torch
+torchvision
+torchaudio
+# pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+
