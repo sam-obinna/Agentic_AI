@@ -18,6 +18,7 @@ app.add_middleware(
 # Mount static files (for JS and CSS)
 app.mount("/static", StaticFiles(directory="templates"), name="static")
 
+
 # Serve index.html at root
 @app.get("/", response_class=HTMLResponse)
 async def serve_index():
