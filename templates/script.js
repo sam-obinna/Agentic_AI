@@ -9,7 +9,10 @@ let userMessage = null;
 let isResponseGenerating = false;
 
 // Updated Backend API configuration (FastAPI)
-const API_URL = "http://localhost:8000/chat";
+// const API_URL = "http://localhost:8000/chat";
+// Updated for Render deployment
+const API_URL = "https://sigma-navigator.onrender.com/chat";
+
 
 // Load theme and chat data from local storage on page load
 const loadDataFromLocalstorage = () => {

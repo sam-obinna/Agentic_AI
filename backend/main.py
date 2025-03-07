@@ -1,17 +1,10 @@
-# main.py
-import os
-import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-from dotenv import load_dotenv
 from app import dynamic_memory_app
 
-load_dotenv()
-os.environ.pop("SSL_CERT_FILE", None)
+app = FastAPI()
 
-app = FastAPI(title="Loubby Navigator", description="AI Assistant developed by Team Sigma")
-
+# Allow CORS for your frontend integration
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -20,19 +13,22 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-class Question(BaseModel):
-    question: str
-    history: list[str]
+# Root endpoint (added to prevent Render's 404 error)
+@app.get("/")
+def read_root():
+    return {"message": "Sigma Navigator API is running successfully!"}
 
+# Health-check endpoint
+@app.get("/healthz")
+def health_check():
+    return {"status": "healthy"}
+
+# Chat endpoint for your frontend
 @app.post("/chat")
-def chat(question: Question):
-    state = {
-        "question": question.question,
-        "history": question.history
-    }
+async def chat(request: Request):
+    body = await request.json()
+    question = body.get("question")
+    history = body.get("history", [])
+    state = {"question": question, "history": history}
     response = dynamic_memory_app.invoke(state)
-    return {"answer": response["answer"], "history": response["history"]}
-
-if __name__ == "__main__":
-    port = int(os.getenv("PORT", 8000))  # Use Render's assigned PORT
-    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
+    return response
