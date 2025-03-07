@@ -45,7 +45,7 @@ def dynamic_memory_agent_step(state):
         context = "\n".join(doc.page_content for doc in retrieved_docs)
 
         prompt_text = f"""
-        You are Loubby Navigator by Team Sigma, explicitly helping users navigate the Loubby website.
+        
 
         Conversation History:
         {"; ".join(history[-4:])}
